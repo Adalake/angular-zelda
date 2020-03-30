@@ -1,0 +1,16 @@
+<ng-container *ngIf="data$ | async as data">
+  <div class="card" fxLayout="column" (click)="toDetail($event)">
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="50">
+      <div fxFlex="40">{{ data.name }}</div>
+      <div fxLayout="row" fxFlex>
+        <div fxFlex="50">{{ data.sex }}</div>
+        <div fxFlex>{{ data.state }}</div>
+      </div>
+    </div>
+    <div class="text" fxLayoutAlign="start center" fxFlex>
+      description:
+      {{ data.description }}
+    </div>
+    <!-- <button (click)="toDetail($event)">{{ data.name }}</button> -->
+  </div>
+</ng-container>

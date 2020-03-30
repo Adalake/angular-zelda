@@ -1,0 +1,16 @@
+<div
+  class="whole-app"
+  fxLayout="column"
+  fxLayoutAlign="space-between stretch"
+  fxFlexFill
+>
+  <app-titlebar></app-titlebar>
+  <div fxFlex>
+    <!-- <button (click)="testQueryPatient()">testQueryPatient</button>
+    <button (click)="testAllStudy()">study_view</button>
+    <button (click)="queryAll()">queryAll</button> -->
+    <!-- <app-home></app-home> -->
+    <router-outlet></router-outlet>
+  </div>
+  <app-statebar></app-statebar>
+</div>

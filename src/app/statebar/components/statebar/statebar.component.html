@@ -1,0 +1,8 @@
+<div class="statebar" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="row">
+    <p *ngIf="currentHour$ | async as h">{{ h }}</p>
+    <p>:</p>
+    <p *ngIf="currentMinute$ | async as m">{{ m }}</p>
+  </div>
+  <p *ngIf="currenDate$ | async as d">{{ d }}</p>
+</div>

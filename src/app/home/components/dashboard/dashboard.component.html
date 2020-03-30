@@ -1,0 +1,33 @@
+<div
+  class="layout-dashboard"
+  fxLayout="column"
+  fxLayoutAlign="start center"
+  fxFlex="70"
+>
+  <div class="title-wrapper" fxLayout="row" fxFlexAlign="stretch">
+    点击下列的study卡片，在右侧会出现选中的study的详细信息：
+  </div>
+  <!-- <button (click)="sort()">name倒序</button>  -->
+  <div fxFlexAlign="stretch">未开始的study：</div>
+
+  <app-card-list
+    [studyIds]="idsOfUnstarted"
+    (cardClicked)="onItemClick({ data: $event, belongTo: 'previous' })"
+  ></app-card-list>
+  <div fxFlexAlign="stretch">结束的study：</div>
+
+  <app-card-list
+    [studyIds]="idsOfClosed"
+    (cardClicked)="onItemClick({ data: $event, belongTo: 'posterior' })"
+  ></app-card-list>
+</div>
+
+<div>
+  关系：
+  <ul>
+    <li>一个patient对应多个study</li>
+    <li>一个study对应多个protocol</li>
+    <li>一个protocol对应多个protocol item</li>
+    <li>一个protocol item对应多个scan</li>
+  </ul>
+</div>

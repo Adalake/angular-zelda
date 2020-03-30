@@ -1,0 +1,88 @@
+<!-- 判断study的状态，来显示不同的页面 -->
+
+<ng-container *ngIf="idBundle$ | async as idBundle">
+  <app-menu [studyId]="idBundle.studyId"></app-menu>
+</ng-container>
+
+<div
+  class="title-wrapper title-in-page"
+  fxLayout="column"
+  fxLayoutAlign="center start"
+>
+  模板库中所有可选的protocol：
+</div>
+
+<ul *ngFor="let template of template$ | async">
+  <li>
+    {{ template?.data.name }}
+  </li>
+</ul>
+
+<div
+  class="title-wrapper title-in-page"
+  fxLayout="column"
+  fxLayoutAlign="center start"
+>
+  可根据regions来筛选模板库中所有可选的protocol，点击如下按钮会出现筛选框：
+</div>
+
+<div fxLayout="row">
+  <div fxLayout="column" fxFlex="40">
+    <ul *ngFor="let model of regions">
+      <li>
+        <button
+          class="tip-button"
+          nz-button
+          nzType="primary"
+          (click)="protocolByRegion(model.name)"
+        >
+          {{ model.name }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  <nz-checkbox-wrapper fxLayout="column" fxFlex>
+    <ng-container *ngFor="let item of selectedRegions$ | async">
+      <label
+        nz-checkbox
+        [(ngModel)]="item.selected"
+        (ngModelChange)="toProtocolSelected(item.id, item.selected)"
+        >{{ item.data.name }}</label
+      >
+    </ng-container>
+  </nz-checkbox-wrapper>
+</div>
+
+<div
+  class="title-wrapper title-in-page"
+  fxLayout="column"
+  fxLayoutAlign="center start"
+>
+  将选中的protocol加入当前的study，此处为调用restful接口发送向数据库insert的请求：
+</div>
+<button class="tip-button" nz-button nzType="primary" (click)="addToDB()">
+  insert to database
+</button>
+
+<!--  
+<div *ngFor="let region of template$ | async">
+  <button (click)="protocolByRegion(region.data.template_region)">
+    {{ region.data.template_region }}
+  </button>
+</div> -->
+
+<div
+  class="title-wrapper title-in-page"
+  fxLayout="column"
+  fxLayoutAlign="center start"
+>
+  只有当前study为已结束状态，点击此按钮才会生效（即点击“张三”卡片）：
+</div>
+<button
+  class="tip-button"
+  nz-button
+  nzType="primary"
+  (click)="toWorkbrench($event)"
+>
+  to workbrench
+</button>

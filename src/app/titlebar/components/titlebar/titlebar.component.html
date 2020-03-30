@@ -1,0 +1,24 @@
+<div class="titlebar" fxLayout="row" fxLayoutAlign="center center">
+  <div>
+    <button
+      class="tip-button title-button"
+      nz-button
+      nzType="primary"
+      routerLink="home"
+      routerLinkActive="active"
+    >
+      Home
+    </button>
+    <button
+      class="tip-button title-button"
+      nz-button
+      nzType="primary"
+      (click)="toWorkbrench()"
+    >
+      Workbrench
+    </button>
+    <button class="tip-button title-button" nz-button nzType="primary" (click)="toAdmin()">
+      Administration
+    </button>
+  </div>
+</div>

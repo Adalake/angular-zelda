@@ -1,0 +1,25 @@
+<div class="panel layout-workbrench" fxFlexFill>
+  <div class="panel layout-parameter">
+    <div class="title-wrapper" fxLayout="column" fxLayoutAlign="center start">
+      需点击下面的protocol item按钮，此处才渲染出不同类型的protocol
+      item对应的动态表单：
+    </div>
+    <ng-container *ngIf="selectedItem$ | async as selectedItem">
+      <app-parameter [selectedItem]="selectedItem"></app-parameter>
+    </ng-container>
+  </div>
+
+  <!-- <ng-container *ngIf="selectedItem$ | async as selectedItem">
+  <app-detail [selectedItem]="selectedItem"></app-detail>
+</ng-container> -->
+
+  <!-- 以下显示closed状态的studyId, menu组件 -->
+
+  <ng-container *ngIf="studyView$ | async as studyView">
+    <app-menu
+      [studyId]="studyView"
+      [selectItem]="selectItem()"
+      [showInWorkbrench]="true"
+    ></app-menu>
+  </ng-container>
+</div>

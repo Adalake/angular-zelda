@@ -1,0 +1,26 @@
+<!-- 
+<ng-container *ngFor="let template of template$ | async">
+  <button (click)="onSelected(template?.data.name)">{{ template?.data.name }}</button>
+</ng-container> -->
+
+<!-- <ng-container *ngFor="let data of data$ | async">
+  【在思考要不要放】
+  <button>{{ data["detail"] }} + {{ data["__typename"] }}</button>
+</ng-container> -->
+
+<ng-container *ngIf="selectedScan$ | async as selectedScan">
+  <!-- <h2>{{ selectedScan["__typename"] }}</h2> -->
+  <ng-container [ngSwitch]="selectedScan['__typename']">
+    <ng-container *ngSwitchCase="'scan_scout'">
+      <app-scan-scout
+        [model]="selectedScan"
+        [isCreateForm]="true"
+      ></app-scan-scout>
+    </ng-container>
+    <ng-container *ngSwitchCase="'scan_helical'">
+      <app-scan-helical
+        [model]="selectedScan"
+        [isCreateForm]="true"
+      ></app-scan-helical> </ng-container
+  ></ng-container>
+</ng-container>

@@ -1,0 +1,67 @@
+//////////*variables*//////////
+
+/*color*/
+@primary-white: #f8fafb;
+@secondary-white: #fff3d5;
+
+@primary-black: #2f3037;
+@secondary-black: #191a1f;
+
+@gary: #363840;
+@light-gary: #d2d2d2;
+
+@light-white: #ffffe5;
+
+@shadow: #606060;
+@black: #000000;
+@green: #47c479;
+@gray: #eee;
+@blue: #3d7e9a;
+
+/*shadow*/
+@shadow-config-1: 0 0 4px;
+@shadow-config-2: 0 3px 6px;
+
+@half-opacity-dark: rgba(62, 107, 90, 50%);
+@half-opacity-white: rgba(255, 255, 255, 50%);
+
+@shadow-primary-dark: @shadow-config-1 @half-opacity-dark;
+@shadow-secondary-dark: @shadow-config-2 @half-opacity-dark;
+
+@shadow-primary-white: @shadow-config-1 @half-opacity-white;
+
+.title-wrapper {
+  background-color: @gray;
+  color: @black;
+  height: 70px;
+  border-left: 10px solid @blue;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.tip-button {
+  background-color: @secondary-black;
+  height: 48px;
+}
+
+.card {
+  width: 454px;
+  height: 120px;
+  background-color: @gary;
+  margin-bottom: @margin;
+  padding: @padding;
+}
+
+.card:hover {
+  background-color: @primary-black;
+  cursor: pointer;
+}
+
+/*panel*/
+.panel {
+  //   border-radius: @border-r-panel;
+  //   background-color: @primary;
+  //   box-shadow: @shadow-panel;
+  padding: 2 * @padding;
+  //   overflow: scroll; /*for text and dev. need delete after release*/
+}

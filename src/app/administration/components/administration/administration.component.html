@@ -1,0 +1,34 @@
+<div fxLayout="row" fxLayoutAlign="start stretch" fxFlexFill>
+  <div
+    class="panel layout-navigation"
+    fxLayout="column"
+    fxLayoutAlign="start center"
+  >
+    <div class="card" routerLink="pdf" routerLinkActive="active">
+      to pdf page
+    </div>
+    <div class="card" routerLink="print" routerLinkActive="active">
+      to print page
+    </div>
+
+    <!-- <button routerLink="pdf" routerLinkActive="active">to pdf page</button>
+    <button routerLink="print" routerLinkActive="active">
+      to print page
+    </button> -->
+  </div>
+
+  <div
+    class="panel layout-detail"
+    fxFlex
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+  >
+    <div class="title-wrapper" fxLayout="column" fxLayoutAlign="center start">
+      点击左侧卡片，进入print或pdf页面；点击print或pdf页面按钮会向后端发送http请求；当点击start按钮后，需点击stop按钮才可以在卡片栏切换：
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center stretch">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<!-- 可以安装一个json-server，就可以作为服务器接受客户端的RESTful请求（GET/POST/PUT/DELETE）了。 -->

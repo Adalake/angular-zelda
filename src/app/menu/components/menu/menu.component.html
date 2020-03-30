@@ -1,0 +1,37 @@
+<div class="panel layout-menu">
+  <p class="text">
+    此组件在home页面和workbrench页面复用，在home页面不显示protocol item信息。
+  </p>
+  <div class="title-wrapper" fxLayout="column" fxLayoutAlign="center start">
+    当前的study对应的protocol/protocols的信息：
+  </div>
+
+  <div class="protocol-content" fxLayout="column">
+    <ng-container *ngFor="let protocolListView of protocolListView$ | async">
+      <div>{{ protocolListView?.name }}</div>
+      <div>{{ protocolListView?.description }}</div>
+    </ng-container>
+  </div>
+
+  <div
+    class="protocol-item-wrapper"
+    [ngClass]="showInWorkbrench ? 'in-workbrench' : 'in-home'"
+  >
+    <div class="title-wrapper" fxLayout="column" fxLayoutAlign="center start">
+      当前的protocol对应的protocol item/protocol items的信息：
+    </div>
+
+    <ul *ngFor="let item of protocolItemView$ | async">
+      <li>
+        <button
+          class="tip-button"
+          nz-button
+          nzType="primary"
+          (click)="onSelected(item)"
+        >
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

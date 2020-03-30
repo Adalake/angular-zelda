@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlexFill>
+  <app-dashboard
+    class="panel layout-dashboard"
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+  ></app-dashboard>
+
+  <div
+    class="panel layout-page"
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+    fxFlex
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>
