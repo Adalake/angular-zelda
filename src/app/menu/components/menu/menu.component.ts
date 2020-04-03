@@ -62,10 +62,9 @@ export class MenuComponent implements OnInit, OnChanges {
           map(x => x["data"]["protocol_view"]),
           map(x => (x as Array<any>).map(x => x.id)),
           switchMap(x => this.scanService.queryProtocolItem(x[0])),
-          map(x => x[0]["protocol_item_ids"])
+          map(x => (!!x[0] ? x[0]["protocol_item_ids"] : x.protocol_item_ids))
         )
       : new Observable<never>();
-    // 报错：一个studyId只有1个protocol时
   }
   protocolListView$ = this.protocolListViewConstructor$(this.studyId);
   protocolListViewConstructor$(studyId: Study["id"] | undefined) {
